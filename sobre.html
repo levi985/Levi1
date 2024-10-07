@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Levi Henrique</title>
+    <style>
+        :root {
+            --background-color: #0D1117;
+            --text-color: #ffffff;
+            --primary-color: #7289DA;
+            --secondary-color: #23272A;
+        }
+
+        [data-theme="light"] {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #f5ba13;
+            --secondary-color: #dddddd;
+        }
+
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: var(--background-color); 
+            color: var(--text-color); 
+            margin: 0; 
+        }
+        img {
+            border-radius: 50px;
+        }
+
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            background-color: var(--secondary-color); 
+        }
+
+        nav ul li { 
+            margin: 0 15px; 
+        }
+
+        nav ul li a { 
+            color: var(--text-color); 
+            text-decoration: none; 
+            padding: 10px; 
+            display: block; 
+            transition: background-color 0.3s, color 0.3s;
+            background-color: transparent;
+        }
+
+        nav ul li a:hover { 
+            background-color: var(--primary-color); 
+            color: var(--background-color); 
+        }
+
+        .container { 
+            text-align: center; 
+            padding: 20px; 
+        }
+
+        .project { 
+            background-color: var(--secondary-color); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin: 20px auto; 
+            width: 80%; 
+            max-width: 600px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project img { 
+            width: 100%; 
+            border-radius: 10px; 
+        }
+
+        a { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            background-color: var(--primary-color); 
+            padding: 10px 15px; 
+            border-radius: 5px; 
+            transition: background-color 0.3s;
+        }
+
+        a:hover { 
+            background-color: #5A6FB1; 
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .project:hover {
+            animation: pulse 0.6s ease-in-out infinite;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Sobre Mim</h1>
+        <img src="/IMG_20240208_010443_651.webp" alt="Imagem levi Henrique" width="150px" >
+<p>Meu nome é Levi Henrique e sou um programador apaixonado por desenvolvimento de software e tecnologia. Atualmente, estou cursando o segundo período de Ciência da Computação e tenho um diploma técnico em Desenvolvimento de Sistemas. Tenho experiência em linguagens como Python, JavaScript, HTML e CSS, e gosto de me desafiar em novos projetos para ampliar meus conhecimentos.</p>
+<p>Minhas principais áreas de interesse incluem o desenvolvimento web e a automação de tarefas. Meus projetos variam desde sites interativos até scripts que facilitam a vida dos usuários no sistema Linux.</p>
+<p>Se você quiser saber mais sobre minha trajetória ou discutir oportunidades de colaboração, entre em contato comigo. Adoro trocar ideias e construir soluções inovadoras!</p>
+
+        
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function applyTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            toggleButton.textContent = theme === 'light' ? '☀️' : '🌙';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            applyTheme(currentTheme);
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        applyTheme(savedTheme);
+    </script>
+</body>
+</html>

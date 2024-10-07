@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Levi Henrique</title>
+    <style>
+        :root {
+            --background-color: #0D1117;
+            --text-color: #ffffff;
+            --primary-color: #7289DA;
+            --secondary-color: #23272A;
+        }
+
+        [data-theme="light"] {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #f5ba13;
+            --secondary-color: #dddddd;
+        }
+
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: var(--background-color); 
+            color: var(--text-color); 
+            margin: 0; 
+        }
+
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            background-color: var(--secondary-color); 
+        }
+
+        nav ul li { 
+            margin: 0 15px; 
+        }
+
+        nav ul li a { 
+            color: var(--text-color); 
+            text-decoration: none; 
+            padding: 10px; 
+            display: block; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover { 
+            background-color: var(--primary-color); 
+            color: var(--background-color); 
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Bem-vindo ao meu Portfólio!</h1>
+<p>Eu sou Levi Henrique, desenvolvedor de software com experiência em Python, JavaScript, CSS e HTML. Aqui você encontrará informações sobre meus projetos, um pouco mais sobre minha trajetória e como você pode entrar em contato comigo.</p>
+<p>Aperfeiçoo minhas habilidades diariamente e estou sempre em busca de novos desafios. Fique à vontade para explorar meu trabalho e conhecer os projetos que desenvolvi.</p>
+<p>Não hesite em me contatar se tiver alguma pergunta ou se estiver interessado em colaborar!</p>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function applyTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            toggleButton.textContent = theme === 'light' ? '☀️' : '🌙';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            applyTheme(currentTheme);
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        applyTheme(savedTheme);
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Levi Henrique</title>
+    <style>
+        :root {
+            --background-color: #0D1117;
+            --text-color: #ffffff;
+            --primary-color: #7289DA;
+            --secondary-color: #23272A;
+        }
+
+        [data-theme="light"] {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #f5ba13;
+            --secondary-color: #dddddd;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: var(--secondary-color);
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        iframe {
+            margin-top: 20px;
+            border: 0;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
+        }
+    </style>
+
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle">🌙</button>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Contato</h1>
+        <p>Email: henriquelevi91@gmail.com</p>
+        <p>Telefone: (81) 9 9220-7714</p>
+
+
+        <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450"></iframe>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                toggleButton.textContent = '🌙';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                toggleButton.textContent = '☀️';
+            }
+            localStorage.setItem('theme', body.getAttribute('data-theme') || 'dark');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                body.setAttribute('data-theme', theme);
+                toggleButton.textContent = theme === 'light' ? '☀️' : '🌙';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -38,4 +38,4 @@ Este é o meu portfólio pessoal onde exibo informações sobre mim, meus projet
 Você pode acessar o projeto diretamente [aqui](https://levi985.github.io/Levi1/) ou clonar este repositório e abrir os arquivos HTML no seu navegador.
 
 ```bash
-git clone https://github.com/levi985/portfolio.git
+git clone https://github.com/levi985/Levi1

@@ -35,7 +35,7 @@ Este é o meu portfólio pessoal onde exibo informações sobre mim, meus projet
 
 ## Como Visualizar
 
-Você pode acessar o projeto diretamente [aqui](https://levi1.github.io) ou clonar este repositório e abrir os arquivos HTML no seu navegador.
+Você pode acessar o projeto diretamente [aqui](https://levi985.github.io/Levi1/) ou clonar este repositório e abrir os arquivos HTML no seu navegador.
 
 ```bash
 git clone https://github.com/levi985/portfolio.git
